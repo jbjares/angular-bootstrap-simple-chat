@@ -10,7 +10,7 @@
                     <span class="fa fa-close" ng-click="vm.close()"></span>
                 </div>
             </div>
-            <div class="panel-body msg-container-base" ng-style="vm.panelStyle">
+            <div class="panel-body msg-container-base">
                 <div class="row msg-container" ng-repeat="message in vm.messages" ng-init="selfAuthored = vm.myUserId == message.fromUserId">
                     <div class="col-md-12 col-xs-12">
                         <div class="chat-msg" ng-class="{'chat-msg-sent': selfAuthored, 'chat-msg-recieved': !selfAuthored}">

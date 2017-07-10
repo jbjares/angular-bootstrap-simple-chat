@@ -9,7 +9,7 @@
                     <span class="fa" ng-class="vm.chatButtonClass" ng-click="vm.toggle()"></span>
                 </div>
             </div>
-            <div class="panel-body" ng-style="vm.panelStyle">
+            <div class="panel-body" z>
                 <div class="msg-container-base">
                     <div class="row msg-container" ng-repeat="message in vm.messages" ng-init="selfAuthored = vm.myUserId == message.fromUserId">
                         <div class="col-md-12 col-xs-12">

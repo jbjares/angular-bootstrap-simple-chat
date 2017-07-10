@@ -1,3 +1,4 @@
+
 (function() {
   'use strict';
 
@@ -5,38 +6,45 @@
 
   angular.module('app').controller('Shell', Shell);
 
+
+
   function Shell() {
 
     var vm = this;
 
-    vm.messages = [
-      {
-        'username': 'Matt',
-        'content': 'Hi!'
-      },
-      {
-        'username': 'Elisa',
-        'content': 'Whats up?'
-      },
-      {
-        'username': 'Matt',
-        'content': 'I found this nice AngularJS Directive'
-      },
-      {
-        'username': 'Elisa',
-        'content': 'Looks Great!'
-      }
-    ];
+    vm.messages = [];
 
-    vm.username = 'Matt';
+    vm.username = 'Visitante';
 
     vm.sendMessage = function(message, username) {
-      if(message && message !== '' && username) {
-        vm.messages.push({
-          'username': username,
-          'content': message
-        });
-      }
+
+      vm.messages.push({
+        'username': username,
+        'content': message
+      })
+
+
+      var result = null;
+      $.ajax({
+        url: "http://localhost:1880/newChatMessage?message="+message+"&username="+username,
+        dataType: 'jsonp',
+        async: false,
+        success: function (json) {
+          result = json;
+          console.log("success!");
+            vm.messages.push({
+              'username': "amiGO!",
+              'content': json.output.text[0]
+            });
+
+          vm.toggle;vm.toggle;
+        },
+        error: function (error) {
+          alert( "Error: "+error );
+        }
+
+      });
+      alert(result);
     };
 
   }

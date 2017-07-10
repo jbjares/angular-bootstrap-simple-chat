@@ -4,6 +4,8 @@
   "description": "Simple Chat Directive for AngularJS with Bootstrap with infinite scroll",
   "main": "gulpfile.js",
   "dependencies": {
+    "bower": "^1.8.0",
+    "farmhash": "^2.0.0"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
